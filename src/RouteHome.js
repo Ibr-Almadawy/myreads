@@ -10,7 +10,7 @@ class RouteHome extends React.Component{
               </div>
               <div className="list-books-content">
                 <div>
-                  <Shelf name='Currently reading'/>
+                  <Shelf name='Currently reading' />
                   <Shelf name='Want to read'/>
                   <Shelf name='Read'/>
                 </div>

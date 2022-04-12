@@ -5,12 +5,23 @@ import {Route, Routes} from 'react-router-dom'
 import RouteSearch from './RouteSearch'
 import RouteHome from './RouteHome'
 class BooksApp extends React.Component {
-  state = {
-    showSearchPage: false
-  }
 
-  render() {
+  
+  state = {
+    showSearchPage: false,
+    books: [],
+    currentlyReading:[],
+    wantToRead:[],
+    read:[]
+  }
+ 
+ 
+
+
+  render() {console.log(this.state.read)
+
     return (
+      
       <div className="app">
         <Routes>
           <Route exact  path='/' element={<RouteHome/>}/>
