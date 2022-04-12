@@ -15,10 +15,21 @@ class BooksApp extends React.Component {
     read:[]
   }
  
- 
+  componentDidMount(){
+    BooksAPI.getAll().then((res)=>(
+      this.setState({
+        books:res,
+        currentlyReading:res.filter((b)=>(b.shelf === 'currentlyReading')),
+        wantToRead:res.filter((b)=>(b.shelf === 'wantToRead')),
+        read:res.filter((b)=>(b.shelf === 'read'))
+      } 
+      ))  
+    )
+
+  }
 
 
-  render() {console.log(this.state.read)
+  render() { //console.log(this.state.currentlyReading)
 
     return (
       
