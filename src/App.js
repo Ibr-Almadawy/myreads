@@ -1,41 +1,43 @@
-import React from 'react'
+import React ,{Component} from 'react'
 import * as BooksAPI from './BooksAPI'
 import './App.css'
 import {Route, Routes} from 'react-router-dom'
 import RouteSearch from './RouteSearch'
 import RouteHome from './RouteHome'
-class BooksApp extends React.Component {
+class BooksApp extends Component {
 
   
   state = {
     showSearchPage: false,
     books: [],
-    currentlyReading:[],
-    wantToRead:[],
-    read:[]
+
   }
  
   componentDidMount(){
     BooksAPI.getAll().then((res)=>(
       this.setState({
-        books:res,
-        currentlyReading:res.filter((b)=>(b.shelf === 'currentlyReading')),
-        wantToRead:res.filter((b)=>(b.shelf === 'wantToRead')),
-        read:res.filter((b)=>(b.shelf === 'read'))
+        books:res
       } 
       ))  
     )
 
   }
 
+  shelfUpdater = (b,s)=>{
+   BooksAPI.update(b,s).then(()=>BooksAPI.getAll().then((res)=>(
+      this.setState({
+        books:res
+      } 
+      ))  
+    ));
+  }
 
-  render() { //console.log(this.state.currentlyReading)
-
+  render() { 
     return (
       
       <div className="app">
         <Routes>
-          <Route exact  path='/' element={<RouteHome books={this.state.books}/> }/>
+          <Route exact  path='/' element={<RouteHome books={this.state.books} func={this.shelfUpdater}/> }/>
           <Route exact path='/search' element={<RouteSearch/>}/>
         </Routes>
       </div>    

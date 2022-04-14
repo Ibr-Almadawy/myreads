@@ -8,7 +8,7 @@ class Shelf extends Component{
             <h2 className="bookshelf-title">{this.props.name}</h2>
             <div className="bookshelf-books">
               <ol className="books-grid">
-                {this.props.books.filter(book=>this.props.name === book.shelf).map(bk=><Book  book={bk}/>)}
+                {this.props.books.filter(book=>this.props.name === book.shelf).map(bk=><Book key={bk.id} book={bk} func={this.props.func}/>)}
                   
                 
                 

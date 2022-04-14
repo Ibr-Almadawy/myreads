@@ -10,9 +10,9 @@ class RouteHome extends React.Component{
               </div>
               <div className="list-books-content">
                 <div>
-                  <Shelf name='currentlyReading' books={this.props.books} />
-                  <Shelf name='wantToRead' books={this.props.books}/>
-                  <Shelf name='read' books={this.props.books}/>
+                  <Shelf name='currentlyReading' books={this.props.books}  func={this.props.func}/>
+                  <Shelf name='wantToRead' books={this.props.books} func={this.props.func}/>
+                  <Shelf name='read' books={this.props.books} func={this.props.func}/>
                 </div>
               </div>
                <div className="open-search">
