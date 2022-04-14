@@ -35,7 +35,7 @@ class BooksApp extends React.Component {
       
       <div className="app">
         <Routes>
-          <Route exact  path='/' element={<RouteHome/>}/>
+          <Route exact  path='/' element={<RouteHome books={this.state.books}/> }/>
           <Route exact path='/search' element={<RouteSearch/>}/>
         </Routes>
       </div>    
