@@ -1,5 +1,6 @@
 import React from 'react'
 import Shelf from './AppShelf'
+import {Link} from 'react-router-dom'
 
 class RouteHome extends React.Component{
     render(){
@@ -16,7 +17,7 @@ class RouteHome extends React.Component{
                 </div>
               </div>
                <div className="open-search">
-               <button onClick={() => this.setState({ showSearchPage: true })}>Add a book</button>
+               <Link className='open-search-link' to='/search'>Add a book</Link>
                </div>
             </div>
         )
