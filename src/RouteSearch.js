@@ -1,6 +1,8 @@
 import React, {Component} from 'react'
 import Book from './AppBook';
 import {Link} from 'react-router-dom'
+import SearchShelf from './AppSearchShelf';
+
 class RouteSearch extends Component{
   // findBooks = ()=>{
   //    return ((this.props.books.length >0) ? (this.props.books.map(bk=><Book key={bk.id} book={bk} />)):(<h1>There is no books </h1>))
@@ -24,7 +26,7 @@ class RouteSearch extends Component{
                         </div>
                       </div>
                       <div className="search-books-results">
-                        <ol className="books-grid">{this.props.books.length>0 ? this.props.books.map(bk=><Book key={bk.id} book={bk} />):<h1>Search to show books </h1>}</ol>
+                        <ol className="books-grid"><SearchShelf  books={this.props.books} func={this.props.func}/></ol>
                       </div>
                     </div>
         )
