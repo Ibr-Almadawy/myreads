@@ -1,12 +1,9 @@
 import React, {Component} from 'react'
-import Book from './AppBook';
 import {Link} from 'react-router-dom'
 import SearchShelf from './AppSearchShelf';
 
 class RouteSearch extends Component{
-  // findBooks = ()=>{
-  //    return ((this.props.books.length >0) ? (this.props.books.map(bk=><Book key={bk.id} book={bk} />)):(<h1>There is no books </h1>))
-  // }
+
     render(){
         return(
             <div className="search-books">
@@ -21,8 +18,7 @@ class RouteSearch extends Component{
                             However, remember that the BooksAPI.search method DOES search by title or author. So, don't worry if
                             you don't find a specific author or title. Every search is limited by search terms.
                           */}
-                          <input type="text" placeholder="Search by title or author" onChange={this.props.queryFunc} onDragLeaveCapture={this.props.clear}/>
-                          
+                          <input type="text" placeholder="Search by title or author" onChange={this.props.queryFunc}/>
                         </div>
                       </div>
                       <div className="search-books-results">

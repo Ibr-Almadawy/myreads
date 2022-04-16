@@ -2,16 +2,17 @@ import React , {Component} from 'react'
 import Book from './AppBook';
 class SearchShelf extends Component{
 
+resultManage =(books)=>{
+  const result = books instanceof Array === true ? books.map(bk=><Book key={bk.id} book={bk} func={this.props.func}/>)
+  : <h1 className='no-books'>No books available for your entry ...<p className='try-again'>Try another search</p> </h1>
+  return result
+}
     render(){
         return(
          <div className="bookshelf">
-            <h2 className="bookshelf-title"></h2>
             <div className="bookshelf-books">
               <ol className="books-grid">
-              {this.props.books.length>0 ? this.props.books.map(bk=><Book key={bk.id} book={bk} func={this.props.func}/>):<h1>Search to show books </h1>}
-                  
-                
-                
+              {this.resultManage(this.props.books)}
               </ol>
             </div>
           </div>

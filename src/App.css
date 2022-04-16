@@ -196,3 +196,11 @@ button:active {
   text-align: center;
   font-size: 0.8em;
 }
+
+.no-books {
+ color:blue;
+}
+
+.try-again {
+  color:darkorange;
+}

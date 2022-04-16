@@ -8,13 +8,11 @@ class BooksApp extends Component {
 
   
   state = {
-    showSearchPage: false,
     books: [],
     query:'',
     searchBooks:[]
-
   }
- 
+
   componentDidMount(){
     BooksAPI.getAll().then((res)=>(
       this.setState({
@@ -22,7 +20,6 @@ class BooksApp extends Component {
       } 
       ))  
     )
-
   }
 
   shelfUpdater = (b,s)=>{
@@ -33,36 +30,33 @@ class BooksApp extends Component {
       ))  
     ));
   }
+
+
   searchQuery = (event)=>{
     this.setState({
-      query : event.target.value
+      query : event.target.value,
     }); 
-     BooksAPI.search(event.target.value)
-    .then((boks)=>{this.setState({searchBooks:boks})})
+    event.target.value.length === 0 ? this.setState({searchBooks:[]}): BooksAPI.search(event.target.value)
+    .then((boks)=>
+      this.setState({searchBooks:boks}))
   }
-  clearQuery =()=>{
-    this.setState({
-      query : ''
-    })
-  }
+  
 
-
-
-  render() { 
+  render() {  
+    
     return (
-      
+     
       <div className="app">
         <Routes>
           <Route exact  path='/' element={<RouteHome
                           books={this.state.books} 
                           func={this.shelfUpdater}/> }/>
           <Route exact path='/search' element={<RouteSearch 
-                                        queryString={this.state.query} 
+                                        sQuery={this.state.query} 
                                         books={this.state.searchBooks} 
                                         queryFunc={this.searchQuery}
-                                        clear={this.clearQuery}
                                         func={this.shelfUpdater}/>}
-/>{console.log(this.state.query,this.state.searchBooks)}
+/>
         </Routes>
       </div>    
     )
