@@ -11,12 +11,14 @@ class RouteHome extends React.Component{
               </div>
               <div className="list-books-content">
                 <div>
-                  <Shelf name='currentlyReading' books={this.props.books}  func={this.props.func}/>
-                  <Shelf name='wantToRead' books={this.props.books} func={this.props.func}/>
-                  <Shelf name='read' books={this.props.books} func={this.props.func}/>
+                  {/* Add shelves categories and add props name ,title ,books and func */}
+                  <Shelf title='Currently reading' name='currentlyReading' books={this.props.books}  func={this.props.func}/>
+                  <Shelf title='Want to read' name='wantToRead' books={this.props.books} func={this.props.func}/>
+                  <Shelf title='Read' name='read' books={this.props.books} func={this.props.func}/>
                 </div>
               </div>
                <div className="open-search">
+                 {/* Use router 'Link' to go to search page instead of button */}
                <Link className='open-search-link' to='/search' onClick={this.props.clearSearch}>Add a book</Link>
                </div>
             </div>
