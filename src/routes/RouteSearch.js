@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import {Link} from 'react-router-dom'
-import SearchShelf from './AppSearchShelf';
+import SearchShelf from '../components/AppSearchShelf';
 
 class RouteSearch extends Component{
 

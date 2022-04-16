@@ -1,5 +1,5 @@
 import React from 'react'
-import Shelf from './AppShelf'
+import Shelf from '../components/AppShelf'
 import {Link} from 'react-router-dom'
 
 class RouteHome extends React.Component{
