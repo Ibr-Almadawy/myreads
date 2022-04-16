@@ -32,14 +32,20 @@ class BooksApp extends Component {
   }
 
 
+
   searchQuery = (event)=>{
-    this.setState({
-      query : event.target.value,
-    }); 
-    event.target.value.length === 0 ? this.setState({searchBooks:[]}): BooksAPI.search(event.target.value)
-    .then((boks)=>
-      this.setState({searchBooks:boks}))
-  }
+      this.setState({
+        query : event.target.value,
+      }); 
+      event.target.value.length === 0 ? this.setState({searchBooks:[]}): BooksAPI.search(event.target.value)
+        .then((boks)=>{
+         boks = boks instanceof Array === true ? boks.map((bok)=>{
+          return  this.state.books.forEach((book)=>{ book.id === bok.id && (bok.shelf = book.shelf );})
+           }) && this.setState({searchBooks:boks}) :this.setState({searchBooks:boks})
+        }) 
+    }
+      
+  
   
   clearSearch = ()=>{
     this.setState({searchBooks : []})
@@ -56,11 +62,9 @@ class BooksApp extends Component {
                           func={this.shelfUpdater}
                           clearSearch={this.clearSearch}/> }/>
           <Route exact path='/search' element={<RouteSearch 
-                                        sQuery={this.state.query} 
                                         searchBooks={this.state.searchBooks} 
                                         queryFunc={this.searchQuery}
-                                        func={this.shelfUpdater}/>}
-/>
+                                        func={this.shelfUpdater}/>}/>
         </Routes>
       </div>    
     )

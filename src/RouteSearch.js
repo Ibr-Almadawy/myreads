@@ -22,7 +22,8 @@ class RouteSearch extends Component{
                         </div>
                       </div>
                       <div className="search-books-results">
-                        <ol className="books-grid"><SearchShelf  searchBooks={this.props.searchBooks} func={this.props.func}/></ol>
+                        <ol className="books-grid"><SearchShelf  searchBooks={this.props.searchBooks} 
+                                                                  func={this.props.func}/></ol>
                       </div>
                     </div>
         )
