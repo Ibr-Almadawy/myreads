@@ -41,6 +41,9 @@ class BooksApp extends Component {
       this.setState({searchBooks:boks}))
   }
   
+  clearSearch = ()=>{
+    this.setState({searchBooks : []})
+  }
 
   render() {  
     
@@ -50,10 +53,11 @@ class BooksApp extends Component {
         <Routes>
           <Route exact  path='/' element={<RouteHome
                           books={this.state.books} 
-                          func={this.shelfUpdater}/> }/>
+                          func={this.shelfUpdater}
+                          clearSearch={this.clearSearch}/> }/>
           <Route exact path='/search' element={<RouteSearch 
                                         sQuery={this.state.query} 
-                                        books={this.state.searchBooks} 
+                                        searchBooks={this.state.searchBooks} 
                                         queryFunc={this.searchQuery}
                                         func={this.shelfUpdater}/>}
 />

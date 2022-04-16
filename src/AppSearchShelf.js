@@ -12,7 +12,7 @@ resultManage =(books)=>{
          <div className="bookshelf">
             <div className="bookshelf-books">
               <ol className="books-grid">
-              {this.resultManage(this.props.books)}
+              {this.resultManage(this.props.searchBooks)}
               </ol>
             </div>
           </div>

@@ -17,7 +17,7 @@ class RouteHome extends React.Component{
                 </div>
               </div>
                <div className="open-search">
-               <Link className='open-search-link' to='/search'>Add a book</Link>
+               <Link className='open-search-link' to='/search' onClick={this.props.clearSearch}>Add a book</Link>
                </div>
             </div>
         )
