@@ -43,6 +43,7 @@ to use this app you need to follw steps:
   F. App.test.js
   G. package,json
   H. README.md (This file)
+  I. noImage.jpg (to render if book has no image)
 
 ## Dependences:
 - prop-types
@@ -84,6 +85,7 @@ Run App on browser.
 ***15th*** Define **clearSearch** inside **App** to clear search page when navigate from homepage to search and return to search again.
 ***16th*** Fixing errors of return an empty string in the search .
 ***17th*** Fixing errors of entry not returning result to display a message **No books**.
+***18th*** Fixing error of non existence of book image and non existence of authors by add inline ternary operators.
 
 ## References:
 1. https://reactjs.org/ (Documentation)
